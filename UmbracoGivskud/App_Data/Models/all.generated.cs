@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "381f361ad1eab97e")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "963ef53ae0d08747")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
