@@ -1,0 +1,93 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: $sand;
+    text-align: center;
+    height: $barsHeight;
+    line-height: 80px;
+    width: 100%;
+
+    .back {
+        position: absolute;
+        left: 0;
+
+        img {
+            height: 25px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.header-filter {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: $sand;
+    text-align: center;
+    height: $barsHeight;
+    width: 100%;
+    
+    .flex-row {
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .category {
+        text-align: center;
+        font-size: 0.85em;
+        color: #fff;
+
+        div {
+            background: {
+                repeat: no-repeat;
+                size: contain;
+            }
+            margin: auto;
+            margin-bottom: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .animals {
+            background-image: url('/assets/icons/map/animals.svg');
+
+            &.active {
+                background-image: url('/assets/icons/map/animals-active.svg');
+            }
+        }
+
+        .eating {
+            background-image: url('/assets/icons/map/eating.svg');
+
+            &.active {
+                background-image: url('/assets/icons/map/eating-active.svg');
+            }
+        }
+
+        .parking {
+            background-image: url('/assets/icons/map/parking.svg');
+
+            &.active {
+                background-image: url('/assets/icons/map/parking-active.svg');
+            }
+        }
+
+        .toilets {
+            background-image: url('/assets/icons/map/toilets.svg');
+
+            &.active {
+                background-image: url('/assets/icons/map/toilets-active.svg');
+            }
+        }
+
+        .specials {
+            background-image: url('/assets/icons/map/specials.svg');
+
+            &.active {
+                background-image: url('/assets/icons/map/specials-active.svg');
+            }
+        }
+    }
+}

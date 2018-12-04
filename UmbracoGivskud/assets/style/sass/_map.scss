@@ -1,0 +1,117 @@
+.map-body {
+    overflow: hidden;
+}
+
+.map {
+    height: calc(100vh - #{$barsHeight} - #{$barsHeight});
+    width: 100%;
+}
+
+.leaflet-control-locate {
+    .pin-icon {
+        background-image: url('/assets/icons/map/map-marker.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin: auto;
+        margin-top: 5px;
+        width: 15px;
+        height: 20px;
+    }
+
+    &.active {
+      a {
+        .pin-icon {
+            background-image: url('/assets/icons/map/map-marker-active.svg');
+        }
+      }
+      &.following a {
+        .pin-icon {
+            background-image: url('/assets/icons/map/map-marker-follow.svg');
+        }
+      }
+    }
+  }
+
+.leaflet-touch {
+    .leaflet-bar {
+        border: 1px solid $borderColor;
+        background-clip: padding-box;
+        border-radius: 10px; 
+    }
+
+    .leaflet-bar a {
+        line-height: 1.15;
+        border-bottom: 0;
+        color: $fontColor;
+    }
+
+    .leaflet-bar a:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .leaflet-bar a:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}
+
+.leaflet-container {
+    .leaflet-control-attribution, .leaflet-control-scale {
+        font-size: 9px;
+        color: $fontColor;
+    }
+
+    a {
+        color: $mainGreen;
+    }
+}
+
+.map-icon {
+    color: white;
+    fill: currentColor;
+    width: 70px;
+    svg {
+        height: 70px;
+        position: absolute;
+        padding: 15px;
+    }
+    
+    .icon-background {
+        background-color: $blue;
+        border-radius: 50%;
+        border: white 2.5px solid;
+        height: 70px;
+        width: 70px;
+    }
+    
+    .tooltiptext {
+        visibility: hidden;
+        background-color: $borderColor;
+        text-align: center;
+        color: $fontColor;
+        padding: 5px 0;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        bottom: 100px;
+        z-index: 1;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: $borderColor transparent transparent transparent;
+        }
+    }
+}
+
+#icons {
+    display: flex;
+    justify-content: space-between;
+}

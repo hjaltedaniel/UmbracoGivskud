@@ -1,0 +1,13 @@
+.tickets-background {
+    background: url(/assets/img/bg-tickets.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 100%;
+    height: calc(100vh - #{$barsHeight} - #{$barsHeight});
+    overflow: hidden;
+}
+
+a.tickets-btn {
+    margin: 25px 0;
+}

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="flex-row">
+            <h2 class="center">Camels</h2>
+            <div onclick="hidePopup()" id="close" class="close"></div>
+        </div>
+    <img src="assets/img/camel.jpg" class="popup-img" alt="lion">
+    <p>
+        Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula. Nibh congue elit, metus explicabo 
+        nobis, sodales distinctio culpa elementum aenean donec facilisis. Dignissim vivamus magnis amet erat, mollis 
+        torquent est, ut porta hendrerit mollis. 
+    </p>
+    <div class="video">
+        <img src="assets/icons/play.svg" alt="play button" class="play-btn">
+    </div>
+    <div class="buttons">
+        <a href="#" class="btn">Navigate</a>
+        <a href="#" class="btn">Report</a>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+#weather {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blank-space {
+    height: 140px;
+}
+
+.hourly-weather {
+    margin-top: 10px;
+}
+
+.weather-icon {
+    height: 40px;
+    margin-top: 10px;
+}
+
+.weather-temperature {
+    font-size: 1.5em;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.weather-hour {
+    margin: 0;
+}
