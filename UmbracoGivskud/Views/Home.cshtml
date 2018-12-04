@@ -1,43 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Home>
     @using ContentModels = Umbraco.Web.PublishedContentModels;
     @{
-    Layout = null;
+    Layout = "MasterTemplate.cshtml";
     }
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Changa+One|Changa:300,500" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-        <link rel="manifest" href="/assets/manifest.json">
-        <!-- Leaflet.js map-->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
-        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-        <!-- end of Leaflet.js map-->
-        <link rel="stylesheet" href="assets/style/style.css">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <meta name="apple-mobile-web-app-title" content="Givskud Zoo - Zootopia">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-1242x2148.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-1536x2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-        <link rel="apple-touch-startup-image" href="assets/img/splash/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-        <title>Givskud Zoo</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#53632e">
-        <meta name="msapplication-TileColor" content="#53632e">
-        <meta name="theme-color" content="#53632e">
-    </head>
 
     <body class="landing-body">
 
@@ -119,60 +84,3 @@
                 </section>
             </div>
         </main>
-        <nav class="site-nav">
-            <div class="container">
-                <a href="/map.html" class="nav-item">
-                    <img src="assets/icons/nav/explore.svg" alt="compass" class="nav-icon">
-                    Explore
-                </a>
-                <a href="/today.html" class="nav-item">
-                    <img src="assets/icons/nav/today.svg" alt="calender" class="nav-icon">
-                    Today
-                </a>
-                <a href="/tickets.html" class="nav-item">
-                    <img src="assets/icons/nav/tickets.svg" alt="ticket" class="nav-icon">
-                    Tickets
-                </a>
-            </div>
-        </nav>
-
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-        <script src="assets/js/jquery.mobile.custom/jquery.mobile.custom.min.js"></script>
-        <script src="assets/js/LandingPage.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script type="text/javascript">
-        // Defining the map and standard location (Latitude / Longitude) and zoom level
-        // var map = L.map('map').setView([55.81139, 9.35229], 16);
-
-        var map = L.map('map', {
-            center: [55.81139, 9.35229],
-            zoom: 16,
-            zoomControl: false,
-        });
-
-        // Defining the tile layer (in this case we use OpenStreetMaps' standard layer)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 19,
-            minZoom: 15,
-        }).addTo(map);
-
-        // Click on map
-        map.on('click', function() {
-            window.location.replace('/map.html');
-        });
-
-        // movestart
-        map.on('movestart', function() {
-            window.location.replace('/map.html');
-        });
-
-        // zoomstart
-        map.on('zoomstart', function() {
-            window.location.replace('/map.html');
-        });
-
-        </script>
-    </body>
-
-</html>
