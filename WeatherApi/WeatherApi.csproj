@@ -5,7 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\netstandard2.0\WeatherApi.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\Debug\netstandard2.0\WeatherApi.csproj.FileListAbsolute.txt" />
     <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\netstandard2.0\WeatherApi.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netstandard2.0\WeatherApi.assets.cache" />
+    <None Include="obj\Debug\netstandard2.0\WeatherApi.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netstandard2.0\WeatherApi.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\netstandard2.0\WeatherApi.dll" />
+    <None Include="obj\Debug\netstandard2.0\WeatherApi.pdb" />
+    <None Include="obj\WeatherApi.csproj.nuget.cache" />
+    <None Include="obj\WeatherApi.csproj.nuget.g.props" />
+    <None Include="obj\WeatherApi.csproj.nuget.g.targets" />
   </ItemGroup>
 
   <ItemGroup>
