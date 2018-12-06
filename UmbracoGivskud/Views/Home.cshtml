@@ -3,12 +3,35 @@
     @{
     Layout = "MasterTemplate.cshtml";
     }
+
     <body class="landing-body">
+
         <div id="map" class="map"></div>
         <main class="landing-page-main">
             <div class="weather-gradient"></div>
             <div class="container">
-            <section id="weather"></section>
+                <section id="weather">
+                    <div class="hourly-weather">
+                        <img class="weather-icon" src="assets/icons/weather/cloud-sun.svg">
+                        <p class="weather-temperature">17&deg</p>
+                        <p class="weather-hour">11:00</p>
+                    </div>
+                    <div class="hourly-weather">
+                        <img class="weather-icon" src="assets/icons/weather/sun.svg">
+                        <p class="weather-temperature">18&deg</p>
+                        <p class="weather-hour">12:00</p>
+                    </div>
+                    <div class="hourly-weather">
+                        <img class="weather-icon" src="assets/icons/weather/cloud.svg">
+                        <p class="weather-temperature">20&deg</p>
+                        <p class="weather-hour">13:00</p>
+                    </div>
+                    <div class="hourly-weather">
+                        <img class="weather-icon" src="assets/icons/weather/wind.svg">
+                        <p class="weather-temperature">21&deg</p>
+                        <p class="weather-hour">14:00</p>
+                    </div>
+                </section>
                 <div class="blank-space"></div>
                 <section id="landingpage-nodes">
                     <a href="#" class="node-link">
