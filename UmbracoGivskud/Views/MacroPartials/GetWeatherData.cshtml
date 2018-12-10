@@ -9,8 +9,6 @@
         var obj = json[i];
         var d = new Date(obj.dt_txt);
         var n = d.getHours();
-        console.log(obj.temp + " " + obj.dt_txt + " " + obj.icon);
-        console.log(n);
         $("#weather").append('<div class="hourly-weather"><img class="weather-icon" src="http://openweathermap.org/img/w/' + obj.icon + '.png"> <p class="weather-temperature">' + obj.temp + '&deg</p> <p class="weather-hour">' + n + ':00</p> </div>');
     }
 </script>
