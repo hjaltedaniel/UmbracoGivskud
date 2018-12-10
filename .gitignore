@@ -98,3 +98,4 @@ _[Ss]cripts
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
 .vs/UmbracoGivskud/v15/Server/sqlite3/db.lock
+UmbracoGivskud/weatherData.json

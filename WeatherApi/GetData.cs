@@ -59,7 +59,8 @@ namespace WeatherApi
                 string newJson = JsonConvert.SerializeObject(weatherDataList);
 
                 //Save the new Json file on the server
-                System.IO.File.WriteAllText(path, newJson);
+                File.Delete(path);
+                File.WriteAllText(path, newJson);
                 return newJson;
             }
         }
