@@ -1,0 +1,115 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "MasterTemplate.cshtml";
+    var mapItems = Model.Content.Descendants<SingleItem>();
+}
+<body>
+    <header class="header-filter">
+        <div class="container">
+            <div class="flex-row">
+                <div class="category">
+                    <div class="animals active"></div>
+                    <span>Animals</span>
+                </div>
+                <div class="category">
+                    <div class="eating"></div>
+                    <span>Eating</span>
+                </div>
+                <div class="category">
+                    <div class="parking"></div>
+                    <span>Parking</span>
+                </div>
+                <div class="category">
+                    <div class="toilets"></div>
+                    <span>Toilets</span>
+                </div>
+                <div class="category">
+                    <div class="specials"></div>
+                    <span>Specials</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="popup" id="popup">
+        </div>
+        <div id="map" class="map"></div>
+    </main>
+
+    @Html.Partial("Navigation")
+
+    <!-- Leaflet.js extention to get current location -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.63.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <!-- end -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/assets/js/jquery.mobile.custom/jquery.mobile.custom.min.js"></script>
+    <script type="text/javascript">
+        // Defining the map and standard location (Latitude / Longitude) and zoom level
+        var map = L.map('map').setView([55.81139, 9.35229], 16);
+
+        // Defining the tile layer (in this case we use OpenStreetMaps' standard layer)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 19,
+            minZoom: 15,
+        }).addTo(map);
+
+        @foreach(var item in mapItems)
+        {
+            <text>
+            var @item.Title.ToSafeAlias() = L.divIcon({
+                html: '<div class="map-icon @item.Category.Name.ToSafeAlias()" id="@item.Title.ToSafeAlias()" title="@item.Title"> <img src="@item.Icon.Url"> <div class="icon-background"></div> </div>',
+                className: ''
+            });
+
+            L.marker([@item.LatitudePostion.ToString(System.Globalization.CultureInfo.InvariantCulture), @item.LongitudePosition.ToString(System.Globalization.CultureInfo.InvariantCulture)], { icon: @item.Title.ToSafeAlias() }).addTo(map);
+            </text>
+        }
+
+
+        // Getting user's current location
+
+        var lc = L.control.locate({
+            position: 'topright',
+            returnToPrevBounds: true,
+            icon: 'pin-icon',
+            strings: {
+                title: "Get current location"
+            }
+        }).addTo(map);
+
+
+        $(document).ready(function () {
+            $('img[src$=".svg"]').each(function () {
+                var $img = jQuery(this);
+                var imgURL = $img.attr('src');
+                var attributes = $img.prop("attributes");
+
+                $.get(imgURL, function (data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = jQuery(data).find('svg');
+
+                    // Remove any invalid XML tags
+                    $svg = $svg.removeAttr('xmlns:a');
+
+                    // Loop through IMG attributes and apply on SVG
+                    $.each(attributes, function () {
+                        $svg.attr(this.name, this.value);
+                    });
+
+                    // Replace IMG with SVG
+                    $img.replaceWith($svg);
+                }, 'xml');
+            });
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/assets/js/jquery.mobile.custom/jquery.mobile.custom.min.js"></script>
+    <script src="~/assets/js/PeakOnMap.js"></script>
+    <script src="~/assets/js/LoadingPopupForAnimals.js"></script>
+    <script src="~/assets/js/MapFilter.js"></script>
+</body>
+</html>

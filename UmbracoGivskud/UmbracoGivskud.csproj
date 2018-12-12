@@ -322,6 +322,8 @@
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\MasterTemplate.cshtml" />
+    <Content Include="Views\Map.cshtml" />
+    <Content Include="Views\Partials\Navigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
