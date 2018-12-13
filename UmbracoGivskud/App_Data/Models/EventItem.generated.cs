@@ -44,5 +44,50 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// End Time
+		///</summary>
+		[ImplementPropertyType("endTime")]
+		public DateTime EndTime
+		{
+			get { return this.GetPropertyValue<DateTime>("endTime"); }
+		}
+
+		///<summary>
+		/// Event Text
+		///</summary>
+		[ImplementPropertyType("eventText")]
+		public IHtmlString EventText
+		{
+			get { return this.GetPropertyValue<IHtmlString>("eventText"); }
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("image")]
+		public IPublishedContent Image
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("image"); }
+		}
+
+		///<summary>
+		/// Start Time
+		///</summary>
+		[ImplementPropertyType("startTime")]
+		public DateTime StartTime
+		{
+			get { return this.GetPropertyValue<DateTime>("startTime"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
+		}
 	}
 }
