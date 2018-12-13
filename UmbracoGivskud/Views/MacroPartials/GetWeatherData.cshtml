@@ -1,0 +1,14 @@
+﻿﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    string filePath = AppDomain.CurrentDomain.BaseDirectory + "weatherData.json";
+    var jsonString = Html.Raw(WeatherApi.GetData.GetWeatherForecast(filePath));
+}
+<script>
+    var json = @jsonString;
+    for (var i = 0; i < 4; i++) {
+        var obj = json[i];
+        var d = new Date(obj.dt_txt);
+        var n = d.getHours();
+        $("#weather").append('<div class="hourly-weather"><img class="weather-icon" src="http://openweathermap.org/img/w/' + obj.icon + '.png"> <p class="weather-temperature">' + obj.temp + '&deg</p> <p class="weather-hour">' + n + ':00</p> </div>');
+    }
+</script>
