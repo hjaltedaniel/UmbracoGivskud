@@ -23,7 +23,6 @@ _UpgradeReport_Files/
 # Directories #
 ###############
 bin/
-obj/
 TestResults/
 ###################
 # Web publish log #
@@ -100,3 +99,5 @@ _[Ss]cripts
 .vs/UmbracoGivskud/v15/Server/sqlite3/db.lock
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-shm
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-wal
+
+*.ide-shm
