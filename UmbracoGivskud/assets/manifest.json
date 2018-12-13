@@ -1,7 +1,7 @@
 {
     "name": "Givskud Zoo - Zootopia",
     "short_name": "Zootopia",
-    "start_url": "/index.html",
+    "start_url": "/default.aspx",
     "display": "standalone",
     "background_color": "#53632E",
     "theme_color": "#53632E",
