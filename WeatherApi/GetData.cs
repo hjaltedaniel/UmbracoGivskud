@@ -51,7 +51,7 @@ namespace WeatherApi
                 IList<WeatherData> weatherDataList = jsonArray.Select(p => new WeatherData
                 {
                     dt_txt = (DateTime)p["dt_txt"],
-                    temp = (decimal)p["main"]["temp"],
+                    temp = (int)p["main"]["temp"],
                     icon = (string)p["weather"][0]["icon"]
                 }).ToList();
 
@@ -59,7 +59,8 @@ namespace WeatherApi
                 string newJson = JsonConvert.SerializeObject(weatherDataList);
 
                 //Save the new Json file on the server
-                System.IO.File.WriteAllText(path, newJson);
+                File.Delete(path);
+                File.WriteAllText(path, newJson);
                 return newJson;
             }
         }
