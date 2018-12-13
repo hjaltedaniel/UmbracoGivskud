@@ -88,17 +88,22 @@
 
         // Click on map
         map.on('click', function() {
-            window.location.replace('/map.html');
+            window.location.href = '/live-map';
         });
 
         // movestart
         map.on('movestart', function() {
-            window.location.replace('/map.html');
+            window.location.href = '/live-map';
+        });
+
+        // touchstart
+        map.on('touchstart', function () {
+            window.location.href = '/live-map';
         });
 
         // zoomstart
         map.on('zoomstart', function() {
-            window.location.replace('/map.html');
+            window.location.href = '/live-map';
         });
 
     </script>
