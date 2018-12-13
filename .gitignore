@@ -1,3 +1,32 @@
+
+Skip to content
+
+    Pull requests
+    Issues
+    Marketplace
+    Explore
+
+    @hjaltedaniel
+
+1
+0
+
+    0
+
+hjaltedaniel/UmbracoGivskud Private
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+Settings
+UmbracoGivskud/.gitignore
+919dbe1 17 minutes ago
+@snaever snaever gitignore
+@hjaltedaniel
+@snaever
+105 lines (97 sloc) 1.98 KB
 ###################
 # compiled source #
 ###################
@@ -100,4 +129,21 @@ _[Ss]cripts
 .vs/UmbracoGivskud/v15/Server/sqlite3/db.lock
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-shm
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-wal
+
 *.ide-shm
+
+    © 2018 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+Press h to open a hovercard with more details.
