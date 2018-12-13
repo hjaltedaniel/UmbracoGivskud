@@ -131,6 +131,7 @@ _[Ss]cripts
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-wal
 
 *.ide-shm
+<<<<<<< HEAD
 
     © 2018 GitHub, Inc.
     Terms
@@ -147,3 +148,5 @@ _[Ss]cripts
     About
 
 Press h to open a hovercard with more details.
+=======
+>>>>>>> master
