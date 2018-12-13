@@ -2,11 +2,16 @@
 @{
     Layout = "MasterTemplate.cshtml";
     var mapItems = Model.Content.Descendants<SingleItem>();
+    var mapCats = Model.Content.Descendants<MapCategories>();
 }
 <body>
     <header class="header-filter">
         <div class="container">
             <div class="flex-row">
+                @foreach (var category in mapCats)
+                {
+                    @category.CategoryName;
+                }
                 <div class="category">
                     <div class="animals active"></div>
                     <span>Animals</span>
