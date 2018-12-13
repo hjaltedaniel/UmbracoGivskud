@@ -100,5 +100,4 @@ _[Ss]cripts
 .vs/UmbracoGivskud/v15/Server/sqlite3/db.lock
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-shm
 .vs/UmbracoGivskud/v15/Server/sqlite3/storage.ide-wal
-.vs/*
 *.ide-shm
