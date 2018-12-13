@@ -1,5 +1,9 @@
 var filterItem = '.header-filter .category';
 
+$(document).ready(function () {
+    $('.animals').addClass('active');
+});
+
 $(filterItem).click(function() {
 
     if($(this).find('div').hasClass('active')) {

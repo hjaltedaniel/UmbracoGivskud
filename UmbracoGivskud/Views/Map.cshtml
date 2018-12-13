@@ -2,31 +2,29 @@
 @{
     Layout = "MasterTemplate.cshtml";
     var mapItems = Model.Content.Descendants<SingleItem>();
+    var mapCategories = Umbraco.TypedContent(1079).Children("MapCategories");
 }
+<style>
+    @foreach (var category in mapCategories)
+    {
+        <text>
+        .header-filter .category .@category.Name.ToSafeAlias().ToLower() {
+            background-image: url('@category.Name');
+        }
+        </text>
+    }
+</style>
 <body>
     <header class="header-filter">
         <div class="container">
             <div class="flex-row">
-                <div class="category">
-                    <div class="animals active"></div>
-                    <span>Animals</span>
-                </div>
-                <div class="category">
-                    <div class="eating"></div>
-                    <span>Eating</span>
-                </div>
-                <div class="category">
-                    <div class="parking"></div>
-                    <span>Parking</span>
-                </div>
-                <div class="category">
-                    <div class="toilets"></div>
-                    <span>Toilets</span>
-                </div>
-                <div class="category">
-                    <div class="specials"></div>
-                    <span>Specials</span>
-                </div>
+                @foreach (var category in mapCategories)
+                {
+                    <div class="category">
+                        <div class="@category.Name.ToSafeAlias().ToLower()"></div>
+                        <span>@category.Name</span>
+                    </div>
+                }
             </div>
         </div>
     </header>
