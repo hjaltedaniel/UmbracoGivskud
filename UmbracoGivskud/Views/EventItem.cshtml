@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.EventItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "MasterTemplate.cshtml";
+}
+
+<main>
+    <div>
+        <img src="@Model.Content.Image.Url" alt="Frog" class="event-news-image">
+    </div>
+    <div class="event-container">
+        <h2>@Model.Content.Title</h2>
+        <i>@Model.Content.StartTime - @Model.Content.EndTime</i>
+        <p>@Model.Content.EventText</p>
+    </div>
+</main>
+
