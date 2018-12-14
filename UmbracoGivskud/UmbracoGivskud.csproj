@@ -325,6 +325,7 @@
     <Content Include="Views\Map.cshtml" />
     <Content Include="Views\Partials\Navigation.cshtml" />
     <Content Include="Views\MacroPartials\GetWeatherData.cshtml" />
+    <Content Include="Views\Tickets.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -337,6 +338,10 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UmbracoGivskudApi\UmbracoGivskudApi.csproj">
+      <Project>{647e0124-5da6-4b27-85ad-13a50f442aa2}</Project>
+      <Name>UmbracoGivskudApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherApi\WeatherApi.csproj">
       <Project>{9397dfe8-13cd-4ee9-bbe2-185670d32119}</Project>
       <Name>WeatherApi</Name>
