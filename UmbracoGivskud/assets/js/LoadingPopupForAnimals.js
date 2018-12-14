@@ -1,34 +1,41 @@
-
-var animals = document.getElementsByClassName("map-icon");
-
 function hidePopup () {
         $( "#popup" ).empty();
         $( "#popup" ).css('visibility', 'hidden');
         $ ( ".leaflet-top" ).css('visibility', 'visible');
 }
 
-function viewPopup (value)  {
-    $( "#" + value ).on( "click", function() {
-        var dbPath = "../assets/popup-db/" + value + ".txt";
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+function viewPopup(id) {
+    $("#" + id).on("click", function () {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("popup").innerHTML = this.responseText;
-                }
+                var myObj = JSON.parse(this.responseText);
+                document.getElementById("popup").innerHTML = GeneratePopupContent(myObj.Title, myObj.ImgSrc, myObj.ContentText, myObj.VideoLink);
+            }
         };
-        xhttp.open("GET", dbPath, true);
-        xhttp.send();
+        xmlhttp.open("GET", "/umbraco/api/map/get/" + id, true);
+        xmlhttp.send();
 
-        $( "#popup" ).css('visibility', 'visible');
-        $ ( ".leaflet-top" ).css('visibility', 'hidden');
-    });
+        $("#popup").css('visibility', 'visible');
+        $(".leaflet-top").css('visibility', 'hidden');
+    })
+}
+
+function GeneratePopupContent(title, imgSrc, contentText, video) {
+    var baseString = '<div class="container"> <div class="flex-row"> <h2 class="center">' + title + '</h2> <div onclick="hidePopup()" id="close" class="close"></div> </div> <img src="' + imgSrc + '" class="popup-img" alt="' + title + '">' + contentText;
+    var buttons = '<div class="buttons"> <a href="#" class="btn">Navigate</a> <a href="#" class="btn">Report</a> </div></div>'
+
+    if (video != null) {
+        var YoutubeID = video.split('=').pop();
+        baseString += '<div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/' + YoutubeID + '?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    }
+
+    var htmlString = baseString += buttons;
+
+    return htmlString;
 }
 
 $(document).ready(function() {
-    for (i = 0; i < animals.length; i++) {
-        var animalID = animals[i].id;
-        viewPopup(animalID);
-    }
     $(document).bind( "mouseup touchend", function(e){
 
         var container = $("#popup");
