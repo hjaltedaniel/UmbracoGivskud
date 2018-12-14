@@ -1,4 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+
 @{
     Layout = "MasterTemplate.cshtml";
     var mapItems = Model.Content.Descendants<SingleItem>();
@@ -7,9 +11,29 @@
 <style>
     @foreach (var category in mapCategories)
     {
+        var catIcon = Umbraco.Field(category, "categoryIcon");
+        string catIconId = catIcon.ToString();
+        int catIconIdInt = Int32.Parse(catIconId);
+
+        var icon = Umbraco.Media(catIconIdInt);
+        var iconUrl = icon.Url;
+
         <text>
         .header-filter .category .@category.Name.ToSafeAlias().ToLower() {
-            background-image: url('@category.Name');
+            background-image: url('@iconUrl');
+        }
+        </text>
+
+        var catActiveIcon = Umbraco.Field(category, "categoryIconActive");
+        string catActiveIconId = catActiveIcon.ToString();
+        int catActiveIconIdInt = Int32.Parse(catActiveIconId);
+
+        var iconActive = Umbraco.Media(catActiveIconIdInt);
+        var iconActiveUrl = iconActive.Url;
+
+        <text>
+        .header -filter .category .@category.Name.ToSafeAlias().ToLower()@**@.active {
+            background-image: url('@iconActiveUrl');
         }
         </text>
     }
