@@ -335,6 +335,10 @@
     <Content Include="Views\MacroPartials\GetWeatherData.cshtml" />
     <Content Include="Views\Tickets.cshtml" />
     <Content Include="site.webmanifest" />
+    <Content Include="Views\EventItem.cshtml" />
+    <Content Include="Views\NewsItem.cshtml" />
+    <Content Include="Views\Today.cshtml" />
+    <Content Include="Views\Partials\Header.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
