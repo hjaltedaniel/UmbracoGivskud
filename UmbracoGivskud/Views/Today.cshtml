@@ -1,5 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Today>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+    Layout = "MasterTemplate.cshtml";
 }
+
+@Html.Partial("Header")

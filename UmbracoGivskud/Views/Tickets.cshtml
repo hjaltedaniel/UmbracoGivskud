@@ -5,21 +5,13 @@
     var ticketLinks = Model.Content.Descendants<TicketLink>();
 }
 
-<body>
-    <header class="site-header">
-        <div class="container">
-            <h1>@Model.Content.Title</h1>
-        </div>
-    </header>
+@Html.Partial("Header")
 
-    <main class="tickets-background" style="background-image: url('@Model.Content.BackgroundImage.Url')">
-        <div class="container">
-            @foreach (var links in ticketLinks)
-            {
-                <a href="@links.LinkUrl" class="btn tickets-btn">@links.LinkTitle</a>
-            }
-        </div>
-    </main>
-
-    @Html.Partial("Navigation")
-</body>
+<main class="tickets-background" style="background-image: url('@Model.Content.BackgroundImage.Url')">
+    <div class="container">
+        @foreach (var links in ticketLinks)
+        {
+            <a href="@links.LinkUrl" class="btn tickets-btn">@links.LinkTitle</a>
+        }
+    </div>
+</main>
