@@ -8,7 +8,7 @@
 
 @{ 
     //Get parameter from URL to local DateTime variable.
-    DateTime today = Convert.ToDateTime(Request.Params["date"]);
+    DateTime today = DateTime.ParseExact(Request.Params["date"], "dd-MM-yy", null);
 
     //Create a list with DateTime objects of the active week
     int currentDayOfWeek = (int)today.DayOfWeek;
