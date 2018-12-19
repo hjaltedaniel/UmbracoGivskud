@@ -46,6 +46,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Activity Category
+		///</summary>
+		[ImplementPropertyType("activityCategory")]
+		public IPublishedContent ActivityCategory
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("activityCategory"); }
+		}
+
+		///<summary>
 		/// Days Happening
 		///</summary>
 		[ImplementPropertyType("daysHappening")]
