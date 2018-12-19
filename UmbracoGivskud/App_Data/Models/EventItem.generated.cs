@@ -73,6 +73,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// ImageCrop
+		///</summary>
+		[ImplementPropertyType("imageCrop")]
+		public Umbraco.Web.Models.ImageCropDataSet ImageCrop
+		{
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("imageCrop"); }
+		}
+
+		///<summary>
 		/// Start Time
 		///</summary>
 		[ImplementPropertyType("startTime")]
