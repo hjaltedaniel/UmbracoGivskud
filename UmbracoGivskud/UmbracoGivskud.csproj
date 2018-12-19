@@ -252,6 +252,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="android-chrome-192x192.png" />
+    <Content Include="android-chrome-512x512.png" />
+    <Content Include="apple-touch-icon.png" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -275,7 +278,12 @@
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="default.aspx" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
     <Content Include="Global.asax" />
+    <Content Include="mstile-150x150.png" />
+    <Content Include="safari-pinned-tab.svg" />
+    <Content Include="service-worker.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -289,7 +297,7 @@
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="assets\**" />
-    <Content Include="Media\Web.config" />
+    <Content Include="Media\**" />
     <Content Include="config\umbracoSettings.config" />
     <Content Include="config\trees.config" />
     <Content Include="config\tinyMceConfig.config" />
@@ -326,6 +334,11 @@
     <Content Include="Views\Partials\Navigation.cshtml" />
     <Content Include="Views\MacroPartials\GetWeatherData.cshtml" />
     <Content Include="Views\Tickets.cshtml" />
+    <Content Include="site.webmanifest" />
+    <Content Include="Views\EventItem.cshtml" />
+    <Content Include="Views\NewsItem.cshtml" />
+    <Content Include="Views\Today.cshtml" />
+    <Content Include="Views\Partials\Header.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -338,6 +351,10 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MediaHandlerLib\MediaHandlerLib.csproj">
+      <Project>{e8903491-d810-4d1f-ba26-3b476859d587}</Project>
+      <Name>MediaHandlerLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UmbracoGivskudApi\UmbracoGivskudApi.csproj">
       <Project>{647e0124-5da6-4b27-85ad-13a50f442aa2}</Project>
       <Name>UmbracoGivskudApi</Name>
