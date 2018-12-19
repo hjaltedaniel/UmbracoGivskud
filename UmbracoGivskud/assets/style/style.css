@@ -562,6 +562,7 @@ img.center {
           transform: translate(-50%, 0);
   z-index: 1001;
   background: white;
+  -webkit-overflow-scrolling: touch;
 }
 
 .popup .container {
