@@ -1,0 +1,11 @@
+.map{
+	height: 400px;
+}
+
+.hide{
+	display: none;
+}
+
+.pac-container {
+	z-index: 9999;
+}
