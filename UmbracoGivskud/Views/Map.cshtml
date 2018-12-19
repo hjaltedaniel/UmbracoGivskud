@@ -6,7 +6,7 @@
 
 @{
     Layout = "MasterTemplate.cshtml";
-    var mapItems = Model.Content.Descendants<SingleItem>();
+    var mapItems = Model.Content.Descendants<MapItem>();
     var mapCategories = Umbraco.TypedContent(1079).Children("MapCategories");
 }
 <style>
