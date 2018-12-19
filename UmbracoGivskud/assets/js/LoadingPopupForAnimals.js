@@ -27,7 +27,7 @@ function GeneratePopupContent(title, imgSrc, contentText, video) {
 
     if (video != null) {
         var YoutubeID = video.split('=').pop();
-        baseString += '<div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/' + YoutubeID + '?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+        baseString += '<div class="video"><iframe width="270" height="152" src="https://www.youtube.com/embed/' + YoutubeID + '?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
     }
 
     var htmlString = baseString += buttons;
