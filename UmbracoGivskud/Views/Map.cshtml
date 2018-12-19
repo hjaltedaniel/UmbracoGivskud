@@ -86,8 +86,22 @@
                 className: ''
             });
 
-            L.marker([@item.LatitudePostion.ToString(System.Globalization.CultureInfo.InvariantCulture), @item.LongitudePosition.ToString(System.Globalization.CultureInfo.InvariantCulture)], { icon: @item.Title.ToSafeAlias() }).addTo(map);
-
+           @{ 
+                string PosLat = null;
+                string PosLong = null;
+                if (item.MapPosition != null)
+                {
+                    string[] positionList = item.MapPosition.Split(",");
+                    PosLat = positionList[0];
+                    PosLong = positionList[1];
+                }
+                else
+                {
+                    PosLat = item.LatitudePostion.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    PosLong = item.LongitudePosition.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                }
+            }
+            L.marker([@PosLat, @PosLong], { icon: @item.Title.ToSafeAlias() }).addTo(map);
             viewPopup(@item.Id);
             </text>
         }
