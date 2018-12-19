@@ -5,3 +5,143 @@
 }
 
 @Html.Partial("Header")
+
+@{ 
+    //Get parameter from URL to local DateTime variable.
+    DateTime today = Convert.ToDateTime(Request.Params["date"]);
+
+    //Create a list with DateTime objects of the active week
+    int currentDayOfWeek = (int)today.DayOfWeek;
+    DateTime sunday = today.AddDays(-currentDayOfWeek);
+    DateTime monday = sunday.AddDays(1);
+    // If we started on Sunday, we should actually have gone *back*
+    // 6 days instead of forward 1...
+    if (currentDayOfWeek == 0)
+    {
+        monday = monday.AddDays(-7);
+    }
+    var dates = Enumerable.Range(0, 7).Select(days => monday.AddDays(days)).ToList();
+
+    //Create empty variables, for use when returning the Div classes in week overview
+    string DivClass = "";
+    string before = null;
+    string after = null;
+
+    //Get items from models
+    var eventItems = Model.Content.Site().Descendants<EventItem>();
+    var activityItems = Model.Content.Site().Descendants<ActivityItem>();
+
+    //Get DateTime value for next monday, and last monday to make browsing between weeks available.
+    int newDays = today.DayOfWeek - DayOfWeek.Monday;
+    int LastKey = 7;
+    int NextKey = 7;
+    if (today.DayOfWeek == DayOfWeek.Sunday)
+    {
+        NextKey = 0;
+        LastKey = 14;
+    }
+    DateTime LastMonday = today.AddDays(-(newDays + LastKey));
+    DateTime NextMonday = today.AddDays(-(newDays - NextKey));
+}
+
+<main>
+    <div class="container">
+        <section class="opening-hours">
+            <div class="controls">
+                <a href="~/today/?date=@DateTime.Now.ToString("dd-MM-yy")" class="control-btn">Today</a>
+                <span class="week-change">
+                    <a href="~/today/?date=@LastMonday.ToString("dd-MM-yy")" class="control-btn"><</a>
+                    <a href="~/today/?date=@NextMonday.ToString("dd-MM-yy")" class="control-btn">></a>
+                </span>
+            </div>
+            <h2 class="center">Opening hours</h2>
+            <div class="flex-row center">
+                @foreach (var date in dates)
+                {
+                    if (new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday }.Contains(date.DayOfWeek))
+                    {
+                        DivClass = "day weekend";
+                    }
+                    else
+                    {
+                        DivClass = "day weekday";
+                    }
+                    if (date.DayOfWeek == today.DayOfWeek)
+                    {
+                        DivClass += " active-day";
+                    }
+                    if (date.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        before = "</div><div class='flex-row center'>";
+                        after = "";
+                    }
+                    else if (date.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        before = "";
+                        after = "</div>";
+                    }
+                    @Html.Raw(before);
+
+                    <div class="@DivClass">
+                        <a href="/today/?date=@date.ToString("dd-MM-yy")">
+                            <div class="hours">10-17</div>
+                            <div class="date">@date.ToString("MMM dd")</div>
+                        </a>
+                    </div>
+                    @Html.Raw(after);
+                }
+        </section>
+        <section class="events">
+            @foreach (var item in eventItems)
+            {
+                if (today.Date >= item.StartTime.Date && today.Date <= item.EndTime.Date)
+                {
+                    <a href="@item.Url" class="node-link">
+                        <article class="landing-node">
+                            <div class="node-text">
+                                <div class="node-header">
+                                    <h2>@item.Title</h2>
+                                    <i>All day</i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula.</p>
+                            </div>
+                            <img class="node-image" src="@item.Image">
+                        </article>
+                    </a>
+                }
+            }
+        </section>
+        <section class="feedings">
+            <h2 class="center">Feeding times</h2>
+            <ul class="time-table">
+                @foreach (var item in activityItems)
+                {
+                    foreach (var day in item.DaysHappening.ToList())
+                    {
+                        if (item.ActivityCategory.Name == "Feeding" && day.Name == today.DayOfWeek.ToString())
+                        {
+                            <li><b>@item.StartTime.ToString("hh:mm")</b> @item.Title</li>
+                        }
+                    }
+
+                }
+            </ul>
+        </section>
+        <section class="activities">
+            <h2 class="center">Activities</h2>
+            <ul class="time-table">
+                @foreach (var item in activityItems)
+                {
+                    foreach (var day in item.DaysHappening.ToList())
+                    {
+                        if (item.ActivityCategory.Name == "Activity" && day.Name == today.DayOfWeek.ToString())
+                        {
+                            <li><b>@item.StartTime.ToString("HH:mm")</b> @item.Title</li>
+                        }
+                    }
+
+                }
+            </ul>
+        </section>
+    </div>
+</main>
