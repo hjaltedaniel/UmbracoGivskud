@@ -109,6 +109,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Map Position: Drag the picker to the desired map location for your single item
+		///</summary>
+		[ImplementPropertyType("mapPosition")]
+		public object MapPosition
+		{
+			get { return this.GetPropertyValue("mapPosition"); }
+		}
+
+		///<summary>
 		/// Title
 		///</summary>
 		[ImplementPropertyType("title")]
