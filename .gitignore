@@ -105,3 +105,5 @@ _[Ss]cripts
 
 *.ide-shm
 UmbracoGivskud/weatherData.json
+
+*.DS_Store
