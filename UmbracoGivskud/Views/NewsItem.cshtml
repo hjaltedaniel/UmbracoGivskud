@@ -1,8 +1,10 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.NewsItem>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = "MasterTemplate.cshtml";
+    Layout = "MasterTemplate.cshtml";
 }
+
+@Html.Partial("Header")
 
 <main>
     <div>

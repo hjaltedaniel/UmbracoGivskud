@@ -2,7 +2,7 @@
 
 <header class="site-header">
     <div class="container">
-        @if (Model.Content.Parent.ContentType.Alias != "eventItems" || Model.Content.Parent.ContentType.Alias != "newsItems") 
+        @if (Model.Content.Parent.Id == 1192 || Model.Content.Parent.Id == 1193) 
         {
             <div class="flex-row">
                 <div class="back">
@@ -15,6 +15,5 @@
         {
             <h1>@Model.Content.Title</h1>
         }
-
     </div>
 </header>
