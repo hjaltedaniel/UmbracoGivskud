@@ -38,9 +38,7 @@
         }
     
         .video {
-            background: url(/assets/img/video.jpg);
             background-size: cover;
-            height: 170px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -56,7 +54,6 @@
             display: flex;
             justify-content: space-between;
             margin: 20px 0;
-            padding-bottom: 20px;
         
             a.btn {
                 width: 125px;

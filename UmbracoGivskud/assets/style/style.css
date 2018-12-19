@@ -592,9 +592,7 @@ img.center {
 }
 
 .popup .container .video {
-  background: url(/assets/img/video.jpg);
   background-size: cover;
-  height: 170px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
