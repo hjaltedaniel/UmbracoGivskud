@@ -486,6 +486,38 @@ li:last-child {
   padding: 20px 0 10px;
 }
 
+.opening-hours .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.opening-hours .controls .control-btn {
+  background-color: #7DA7D6;
+  color: white;
+  font-family: "Changa";
+  font-weight: lighter;
+  font-size: 15px;
+  text-decoration: none;
+  line-height: 0.6;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.opening-hours .controls .control-btn:hover {
+  background-color: #E7873C;
+}
+
+.opening-hours .controls .week-change {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .opening-hours .flex-row {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -508,6 +540,11 @@ li:last-child {
 
 .opening-hours .day .date {
   font-size: 0.85em;
+}
+
+.opening-hours .day a {
+  color: white;
+  text-decoration: none;
 }
 
 .opening-hours .weekday {
