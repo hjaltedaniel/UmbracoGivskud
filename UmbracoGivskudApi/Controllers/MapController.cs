@@ -25,22 +25,10 @@ namespace UmbracoGivskudApi.Controllers
             result.Id = item.Id;
             result.Title = item.GetValue<string>("title");
             result.ContentText = item.GetValue<string>("contentText");
-            if (item.GetValue<string>("image") != "")
-            {
-                // Your string which is retrieved from Archetype.
-                var imageString = item.GetValue<string>("image");
-                // Get the guid from this string.
-                var imageGuidUdi = GuidUdi.Parse(imageString);
-                // Get the ID of the node!
-                var imageNodeId = ApplicationContext.Current.Services.EntityService.GetIdForKey(imageGuidUdi.Guid, (UmbracoObjectTypes)Enum.Parse(typeof(UmbracoObjectTypes), imageGuidUdi.EntityType, true));
-                // Finally, get the node.
-                var imageNode = Umbraco.TypedMedia(imageNodeId.Result);
-                result.ImgSrc = imageNode.Url;
-            }
-            else
-            {
-                result.ImgSrc = null;
-            }
+
+            var contentCurrent = Umbraco.Content(item.Id);
+            result.ImgSrc = contentCurrent.GetCropUrl("image", "MapItem");
+
             if (item.GetValue<string>("icon") != "")
             {
                 // Your string which is retrieved from Archetype.
