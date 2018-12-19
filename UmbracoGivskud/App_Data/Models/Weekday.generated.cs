@@ -20,7 +20,7 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Weekday</summary>
+	/// <summary>Separator Item</summary>
 	[PublishedContentModel("weekday")]
 	public partial class Weekday : PublishedContentModel
 	{
@@ -46,7 +46,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Weekday Name
+		/// Title
 		///</summary>
 		[ImplementPropertyType("weekdayName")]
 		public string WeekdayName
