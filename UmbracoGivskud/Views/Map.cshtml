@@ -82,7 +82,7 @@
         {
             <text>
             var @item.Title.ToSafeAlias() = L.divIcon({
-                html: '<div class="map-icon @item.Category.Name.ToSafeAlias()" id="@item.Id" title="@item.Title"> <img src="@item.Icon.Url"> <div class="icon-background"></div> </div>',
+                html: '<div class="map-icon @item.Category.Name.ToSafeAlias().ToLower()" id="@item.Id" title="@item.Title"> <img src="@item.Icon.Url"> <div class="icon-background"></div> </div>',
                 className: ''
             });
 
