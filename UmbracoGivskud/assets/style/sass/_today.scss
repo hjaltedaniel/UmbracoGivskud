@@ -20,6 +20,32 @@ li {
 .opening-hours {
     padding: 20px 0 10px;
 
+    .controls {
+        display: flex;
+        justify-content: space-between;
+
+        .control-btn {
+            background-color: $blue;
+            color: white;
+            font-family: $h2Font;
+            font-weight: lighter;
+            font-size: 15px;
+            text-decoration: none;
+            line-height: 0.6;
+            margin-right: 10px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .control-btn:hover {
+            background-color: $accent;
+        }
+        .week-change {
+            display: flex;
+
+
+        }
+    }
+
     .flex-row {
         justify-content: space-between;
         align-items: center;
@@ -37,6 +63,10 @@ li {
 
         .date {
             font-size: 0.85em;
+        }
+        a {
+            color: white;
+            text-decoration: none;
         }
     }
 
