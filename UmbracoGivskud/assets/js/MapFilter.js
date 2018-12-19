@@ -17,8 +17,6 @@ $(filterItem).click(function () {
         $(filterItem).find('div').removeClass('active');
         $(this).find('div').addClass('active');
 
-        console.log(category);
-
         $('#map').find('.map-icon').hide();
         $('#map').find('.' + category).show();
     }
