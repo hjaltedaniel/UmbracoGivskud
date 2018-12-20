@@ -368,6 +368,9 @@
     <Content Include="Views\NewsItem.cshtml" />
     <Content Include="Views\Today.cshtml" />
     <Content Include="Views\Partials\Header.cshtml" />
+    <Content Include="Views\Globals.cshtml" />
+    <Content Include="Views\Partials\Head.cshtml" />
+    <Content Include="Views\Partials\Scripts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
