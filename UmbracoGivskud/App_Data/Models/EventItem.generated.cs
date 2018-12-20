@@ -55,6 +55,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Event Summary
+		///</summary>
+		[ImplementPropertyType("eventSummary")]
+		public string EventSummary
+		{
+			get { return this.GetPropertyValue<string>("eventSummary"); }
+		}
+
+		///<summary>
 		/// Event Text
 		///</summary>
 		[ImplementPropertyType("eventText")]
