@@ -34,7 +34,7 @@
                                             <h2>@item.Title</h2>
                                             <i>@item.StartTime.ToString("HH:mm") | in @timeUntil hours</i>
                                         </div>
-                                        <p>@item.Summary</p>
+                                        <p>@item.ActivitySummary</p>
                                     </div>
                                     <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
                                 </article>
@@ -54,7 +54,7 @@
                                         <h2>@item.Title</h2>
                                         <i>All day</i>
                                     </div>
-                                    <p>@item.Summary</p>
+                                    <p>@item.EventSummary</p>
                                 </div>
                                 <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
                             </article>
@@ -69,7 +69,7 @@
                                     <div class="node-header">
                                         <h2>@item.Title</h2>
                                     </div>
-                                    <p>@item.Summary</p>
+                                    <p>@item.NewsSummary</p>
                                 </div>
                                 <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
                             </article>
