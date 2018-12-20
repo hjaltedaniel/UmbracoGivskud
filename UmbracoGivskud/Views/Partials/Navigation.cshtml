@@ -1,8 +1,19 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    string exploreLink = Request.Url.ToString();
+    if (Request.Url.AbsolutePath != "/")
+    {
+        exploreLink = "/";
+    }
+    else
+    {
+        exploreLink = "/live-map";
+    }
+}
 
 <nav class="site-nav">
     <div class="container">
-        <a href="~/live-map" class="nav-item">
+        <a href="@exploreLink" class="nav-item">
             <img src="~/assets/icons/nav/explore.svg" alt="compass" class="nav-icon">
             Explore
         </a>
