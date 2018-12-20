@@ -3,6 +3,12 @@
     @{
     Layout = "MasterTemplate.cshtml";
     }
+    @{ 
+        var eventItems = Model.Content.Site().Descendants<EventItem>();
+        var activityItems = Model.Content.Site().Descendants<ActivityItem>();
+        var newsItems = Model.Content.Site().Descendants<NewsItem>();
+        DateTime today = DateTime.Now;
+    }
 
 <body class="landing-body">
 
@@ -14,58 +20,66 @@
             </section>
             <div class="blank-space"></div>
             <section id="landingpage-nodes">
-                <a href="#" class="node-link">
-                    <article class="landing-node">
-                        <div class="node-text">
-                            <div class="node-header">
-                                <h2>Wolf feeding</h2>
-                                <i>12:30 | in 2 hours</i>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula.</p>
-                        </div>
-                        <img class="node-image" src="assets/img/wolves-small.png">
-                    </article>
-                </a>
-                <a href="/event.html" class="node-link">
-                    <article class="landing-node">
-                        <div class="node-text">
-                            <div class="node-header">
-                                <h2>Halloween event</h2>
-                                <i>All day</i>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula.</p>
-                        </div>
-                        <img class="node-image" src="assets/img/frog-small.png">
-                    </article>
-                </a>
-                <a href="#" class="node-link">
-                    <article class="landing-node">
-                        <div class="node-text">
-                            <div class="node-header">
-                                <h2>Lion feeding</h2>
-                                <i>14:20 | in 4 hours</i>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula.</p>
-                        </div>
-                        <img class="node-image" src="assets/img/lion-small.png">
-                    </article>
-                </a>
-                <a href="/news.html" class="node-link">
-                    <article class="landing-node">
-                        <div class="node-text">
-                            <div class="node-header">
-                                <h2>New in 2019: Spectacled Bears</h2>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula.</p>
-                        </div>
-                        <img class="node-image" src="assets/img/spectaclebear-small.png">
-                    </article>
-                </a>
+                @foreach (var item in activityItems)
+                {
+                    foreach (var day in item.DaysHappening.ToList())
+                    {
+                        var timeUntil = item.StartTime.Hour - today.Hour;
+                        if (day.Name == today.DayOfWeek.ToString() && timeUntil > 0)
+                        {
+                            <a href="~/today/?date=@DateTime.Now.ToString("dd-MM-yy")" class="node-link">
+                                <article class="landing-node">
+                                    <div class="node-text">
+                                        <div class="node-header">
+                                            <h2>@item.Title</h2>
+                                            <i>@item.StartTime.ToString("HH:mm") | in @timeUntil hours</i>
+                                        </div>
+                                        <p>@item.ActivitySummary</p>
+                                    </div>
+                                    <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
+                                </article>
+                            </a>
+                        }
+                    }
+
+                }
+                @foreach (var item in eventItems)
+                {
+                    if (today.Date >= item.StartTime.Date && today.Date <= item.EndTime.Date)
+                    {
+                        <a href="~/today/?date=@DateTime.Now.ToString("dd-MM-yy")" class="node-link">
+                            <article class="landing-node">
+                                <div class="node-text">
+                                    <div class="node-header">
+                                        <h2>@item.Title</h2>
+                                        <i>All day</i>
+                                    </div>
+                                    <p>@item.EventSummary</p>
+                                </div>
+                                <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
+                            </article>
+                        </a>
+                    }
+                }
+                @foreach (var item in newsItems.Take(1))
+                {
+                        <a href="@item.Url" class="node-link">
+                            <article class="landing-node">
+                                <div class="node-text">
+                                    <div class="node-header">
+                                        <h2>@item.Title</h2>
+                                    </div>
+                                    <p>@item.NewsSummary</p>
+                                </div>
+                                <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
+                            </article>
+                        </a>
+                }
             </section>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="" ~/assets/js/jquery.mobile.custom/jquery.mobile.custom.min.js"></script>
+    <script src="~/assets/js/jquery.mobile.custom/jquery.mobile.custom.min.js"></script>
     @Umbraco.RenderMacro("GetWeatherData")
     <script src="" ~/assets/js/LandingPage.js"></script>
     <script src="" ~/assets/js/app.js"></script>

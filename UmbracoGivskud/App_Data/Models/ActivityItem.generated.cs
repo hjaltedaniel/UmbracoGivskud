@@ -55,12 +55,30 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Activity Summary
+		///</summary>
+		[ImplementPropertyType("activitySummary")]
+		public string ActivitySummary
+		{
+			get { return this.GetPropertyValue<string>("activitySummary"); }
+		}
+
+		///<summary>
 		/// Days Happening
 		///</summary>
 		[ImplementPropertyType("daysHappening")]
 		public IEnumerable<IPublishedContent> DaysHappening
 		{
 			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("daysHappening"); }
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("image")]
+		public Umbraco.Web.Models.ImageCropDataSet Image
+		{
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("image"); }
 		}
 
 		///<summary>
