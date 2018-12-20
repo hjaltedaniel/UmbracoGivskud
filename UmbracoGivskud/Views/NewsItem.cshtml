@@ -12,8 +12,8 @@
     </div>
     <div class="event-container">
         <h2>@Model.Content.Title</h2>
-        <i>@Model.Content.PublishDate</i>
-        <p>@Model.Content.NewsText</p>
+        <i>@Model.Content.PublishDate.ToString("dd/MM/yyyy")</i>
+        @Model.Content.NewsText
     </div>
 </main>
 
