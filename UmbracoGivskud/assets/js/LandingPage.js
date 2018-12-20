@@ -1,3 +1,3 @@
 $('.weather-gradient, .blank-space').click(function() {
-    window.location.replace('/map.html');
+    window.location.href = '/live-map';
 });
