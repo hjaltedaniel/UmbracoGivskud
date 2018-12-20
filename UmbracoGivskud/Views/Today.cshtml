@@ -103,9 +103,9 @@
                                     <h2>@item.Title</h2>
                                     <i>All day</i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, amet ante at nibh sed sed, molestie vehicula.</p>
+                                <p>@item.EventSummary</p>
                             </div>
-                            <img class="node-image" src="@item.Image">
+                            <img class="node-image" src="@item.GetCropUrl("image", "FeedItemSquare")">
                         </article>
                     </a>
                 }
