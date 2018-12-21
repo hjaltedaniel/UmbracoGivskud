@@ -22,8 +22,8 @@ angular.module("umbraco").controller("OsmMaps.PropertyEditorController",
 
         //Loading the styles
         assetsService.loadCss("/app_plugins/OsmMaps/assets/css/osmmaps.css");
-        assetsService.loadCss('/app_plugins/OsmMaps/assets/leaflet/leaflet.css');
-        assetsService.loadJs('/app_plugins/OsmMaps/assets/leaflet/leaflet.js')
+        assetsService.loadCss('https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');
+        assetsService.loadJs('https://unpkg.com/leaflet@1.3.4/dist/leaflet.js')
             .then(function () {
                 initializeMap();
             });
