@@ -33,7 +33,7 @@
         var iconActiveUrl = iconActive.Url;
 
         <text>
-        .header -filter .category .@category.Name.ToSafeAlias().ToLower()@**@.active {
+        .header-filter .category .@category.Name.ToSafeAlias().ToLower()@**@.active {
             background-image: url('@iconActiveUrl');
         }
         </text>
@@ -100,7 +100,6 @@
             </text>
         }
 
-
         // Getting user's current location
 
         var lc = L.control.locate({
@@ -111,7 +110,6 @@
                 title: "Get current location"
             }
         }).addTo(map);
-
 
         $(document).ready(function () {
             $('img[src$=".svg"]').each(function () {
