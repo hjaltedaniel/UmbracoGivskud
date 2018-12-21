@@ -38,7 +38,7 @@ main {
   width: 100%;
   position: fixed;
   bottom: 0;
-  z-index: 1;
+  z-index: 7000;
 }
 
 .site-nav .container {
@@ -99,7 +99,7 @@ main {
 .header-filter {
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 7000;
   background-color: #BDBBA4;
   text-align: center;
   height: 80px;
