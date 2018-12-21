@@ -47,7 +47,7 @@
                 {
                     if (today.Date >= item.StartTime.Date && today.Date <= item.EndTime.Date)
                     {
-                        <a href="~/today/?date=@DateTime.Now.ToString("dd-MM-yy")" class="node-link">
+                        <a href="@item.Url" class="node-link">
                             <article class="landing-node">
                                 <div class="node-text">
                                     <div class="node-header">
