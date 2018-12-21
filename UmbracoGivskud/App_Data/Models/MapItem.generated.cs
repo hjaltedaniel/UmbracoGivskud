@@ -82,30 +82,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Latitude Postion
-		///</summary>
-		[ImplementPropertyType("latitudePostion")]
-		public string LatitudePostion
-		{
-			get { return this.GetPropertyValue<string>("latitudePostion"); }
-		}
-
-		///<summary>
 		/// Link to video
 		///</summary>
 		[ImplementPropertyType("linkToVideo")]
 		public string LinkToVideo
 		{
 			get { return this.GetPropertyValue<string>("linkToVideo"); }
-		}
-
-		///<summary>
-		/// Longitude Position
-		///</summary>
-		[ImplementPropertyType("longitudePosition")]
-		public string LongitudePosition
-		{
-			get { return this.GetPropertyValue<string>("longitudePosition"); }
 		}
 
 		///<summary>
