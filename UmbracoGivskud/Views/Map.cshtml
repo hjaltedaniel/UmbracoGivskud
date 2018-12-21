@@ -90,12 +90,10 @@
            @{ 
                 string PosLat = null;
                 string PosLong = null;
-                if (item.MapPosition != null)
-                {
-                    string[] positionList = item.MapPosition.ToString().Split(',');
-                    PosLat = positionList[0];
-                    PosLong = positionList[1];
-                }
+
+                string[] positionList = item.MapPosition.ToString().Split(',');
+                PosLat = positionList[0];
+                PosLong = positionList[1];
             }
             L.marker([@PosLat, @PosLong], { icon: @item.Title.ToSafeAlias() }).addTo(map);
             viewPopup(@item.Id);
