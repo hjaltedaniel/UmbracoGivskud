@@ -45,8 +45,9 @@ namespace UmbracoGivskudApi.Controllers
             {
                 result.Icon = null;
             }
-            result.Latitude = item.GetValue<double>("latitudePostion");
-            result.Longitude = item.GetValue<double>("longitudePosition");
+            string[] positionList = item.GetValue<string>("MapPosition").ToString().Split(',');
+            result.Latitude = positionList[0];
+            result.Longitude = positionList[1];
             result.VideoLink = item.GetValue<string>("linkToVideo");
 
             return result;

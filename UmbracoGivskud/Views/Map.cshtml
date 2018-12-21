@@ -33,7 +33,7 @@
         var iconActiveUrl = iconActive.Url;
 
         <text>
-        .header -filter .category .@category.Name.ToSafeAlias().ToLower()@**@.active {
+        .header-filter .category .@category.Name.ToSafeAlias().ToLower()@**@.active {
             background-image: url('@iconActiveUrl');
         }
         </text>
@@ -90,23 +90,15 @@
            @{ 
                 string PosLat = null;
                 string PosLong = null;
-                if (item.MapPosition != null)
-                {
-                    string[] positionList = item.MapPosition.ToString().Split(',');
-                    PosLat = positionList[0];
-                    PosLong = positionList[1];
-                }
-                else
-                {
-                    PosLat = item.LatitudePostion.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    PosLong = item.LongitudePosition.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                }
+
+                string[] positionList = item.MapPosition.ToString().Split(',');
+                PosLat = positionList[0];
+                PosLong = positionList[1];
             }
             L.marker([@PosLat, @PosLong], { icon: @item.Title.ToSafeAlias() }).addTo(map);
             viewPopup(@item.Id);
             </text>
         }
-
 
         // Getting user's current location
 
@@ -118,7 +110,6 @@
                 title: "Get current location"
             }
         }).addTo(map);
-
 
         $(document).ready(function () {
             $('img[src$=".svg"]').each(function () {
