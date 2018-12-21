@@ -131,46 +131,6 @@ main {
   height: 30px;
 }
 
-.header-filter .category .animals {
-  background-image: url("/assets/icons/map/animals.svg");
-}
-
-.header-filter .category .animals.active {
-  background-image: url("/assets/icons/map/animals-active.svg");
-}
-
-.header-filter .category .eating {
-  background-image: url("/assets/icons/map/eating.svg");
-}
-
-.header-filter .category .eating.active {
-  background-image: url("/assets/icons/map/eating-active.svg");
-}
-
-.header-filter .category .parking {
-  background-image: url("/assets/icons/map/parking.svg");
-}
-
-.header-filter .category .parking.active {
-  background-image: url("/assets/icons/map/parking-active.svg");
-}
-
-.header-filter .category .toilets {
-  background-image: url("/assets/icons/map/toilets.svg");
-}
-
-.header-filter .category .toilets.active {
-  background-image: url("/assets/icons/map/toilets-active.svg");
-}
-
-.header-filter .category .specials {
-  background-image: url("/assets/icons/map/specials.svg");
-}
-
-.header-filter .category .specials.active {
-  background-image: url("/assets/icons/map/specials-active.svg");
-}
-
 h1 {
   font-family: "Changa One";
   font-weight: 400;
