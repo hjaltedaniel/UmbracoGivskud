@@ -96,11 +96,6 @@
                     PosLat = positionList[0];
                     PosLong = positionList[1];
                 }
-                else
-                {
-                    PosLat = item.LatitudePostion.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    PosLong = item.LongitudePosition.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                }
             }
             L.marker([@PosLat, @PosLong], { icon: @item.Title.ToSafeAlias() }).addTo(map);
             viewPopup(@item.Id);
