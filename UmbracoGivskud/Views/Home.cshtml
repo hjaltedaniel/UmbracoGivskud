@@ -5,7 +5,7 @@
     }
     @{ 
         var eventItems = Model.Content.Site().Descendants<EventItem>();
-        var activityItems = Model.Content.Site().Descendants<ActivityItem>();
+        var activityItems = Model.Content.Site().Descendants<ActivityItem>().OrderBy(x => x.GetPropertyValue<DateTime>("StartTime")); ;
         var newsItems = Model.Content.Site().Descendants<NewsItem>();
         DateTime today = DateTime.Now;
     }
