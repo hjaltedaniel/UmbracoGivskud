@@ -312,7 +312,6 @@
     <Content Include="Global.asax" />
     <Content Include="mstile-150x150.png" />
     <Content Include="safari-pinned-tab.svg" />
-    <Content Include="service-worker.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
